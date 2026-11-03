@@ -14,27 +14,18 @@ class Solution {
         }
 
         // Find start of sequence array
-        ArrayList<Integer> list = new ArrayList<>();
+        int ans = 1;
+
         for (int key : set) {
             if (!set.contains(key - 1)) {
-                list.add(key);
-            }
-        }
-
-        int ans = 1;
-        for (int i = 0; i < list.size(); i++) {
-            int curr = list.get(i);
-            int longest = 1;
-            while (!set.isEmpty()) {
-                if (set.contains(curr + 1)) {
+                int curr = key;
+                int longest = 1;
+                while (set.contains(curr + 1)) {
                     longest++;
                     curr = curr + 1;
-                    set.remove(curr);
-                } else {
-                    break;
                 }
+                ans = Math.max(longest, ans);
             }
-            ans = Math.max(longest, ans);
         }
 
         return ans;
