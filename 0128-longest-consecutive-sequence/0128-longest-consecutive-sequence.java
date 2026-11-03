@@ -4,19 +4,35 @@ class Solution {
             return nums.length;
         }
 
-        // Brute force :- Sort
-        Arrays.sort(nums);
-        int ans = 1;
-        int longest = 1;
-        for (int i = 1; i < nums.length; i++) {
-            int prev = nums[i - 1];
-            int curr = nums[i];
-            if (prev + 1 == curr) {
-                longest++;
-            } else if (prev == curr) {
+        //    HashSet approach
+        HashSet<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (set.contains(num)) {
                 continue;
-            } else {
-                longest = 1;
+            }
+            set.add(num);
+        }
+
+        // Find start of sequence array
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int key : set) {
+            if (!set.contains(key - 1)) {
+                list.add(key);
+            }
+        }
+
+        int ans = 1;
+        for (int i = 0; i < list.size(); i++) {
+            int curr = list.get(i);
+            int longest = 1;
+            while (!set.isEmpty()) {
+                if (set.contains(curr + 1)) {
+                    longest++;
+                    curr = curr + 1;
+                    set.remove(curr);
+                } else {
+                    break;
+                }
             }
             ans = Math.max(longest, ans);
         }
