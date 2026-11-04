@@ -17,6 +17,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0049-group-anagrams](https://github.com/Jashan-Maan/DSA-Problems/tree/master/0049-group-anagrams) |
+| [0125-valid-palindrome](https://github.com/Jashan-Maan/DSA-Problems/tree/master/0125-valid-palindrome) |
 | [0242-valid-anagram](https://github.com/Jashan-Maan/DSA-Problems/tree/master/0242-valid-anagram) |
 ## Sorting
 |  |
@@ -71,6 +72,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Two Pointers
 |  |
 | ------- |
+| [0125-valid-palindrome](https://github.com/Jashan-Maan/DSA-Problems/tree/master/0125-valid-palindrome) |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/Jashan-Maan/DSA-Problems/tree/master/0167-two-sum-ii-input-array-is-sorted) |
 ## Binary Search
 |  |
