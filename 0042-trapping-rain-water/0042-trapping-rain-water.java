@@ -6,27 +6,23 @@ class Solution {
         // Move pointer FIRST, then update max, then add water.
         // Eliminates two O(n) arrays from DP solution.
 
+        if (height.length == 0)
+            return 0;
         int n = height.length;
-        int leftMax[] = new int[n];
-        int rightMax[] = new int[n];
+        int leftMax = height[0], rightMax = height[n - 1];
 
-        // Finding left max heights
-        leftMax[0] = height[0];
-        for (int i = 1; i < n; i++) {
-            leftMax[i] = Math.max(leftMax[i - 1], height[i - 1]);
-        }
-
-        // Finding Right Max heights
-        rightMax[n - 1] = height[n - 1];
-        for (int i = n - 2; i >= 0; i--) {
-            rightMax[i] = Math.max(rightMax[i + 1], height[i + 1]);
-        }
+        int left = 0, right = n - 1;
 
         int trappedWater = 0;
-        for (int i = 0; i < n; i++) {
-            int water = Math.min(leftMax[i], rightMax[i]) - height[i];
-            if (water > 0) {
-                trappedWater += water;
+        while (left <= right) {
+            if (leftMax < rightMax) {
+                leftMax = Math.max(leftMax, height[left]);
+                trappedWater += leftMax - height[left];
+                left++;
+            } else {
+                rightMax = Math.max(rightMax, height[right]);
+                trappedWater += rightMax - height[right];
+                right--;
             }
         }
         return trappedWater;
