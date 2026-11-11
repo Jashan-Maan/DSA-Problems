@@ -10,9 +10,11 @@ class Solution {
 
         Stack<Double> stack = new Stack<>();
         for (int[] p : pair) {
-            stack.push((double) (target - p[0]) / p[1]);
-            if (stack.size() >= 2 && stack.peek() <= stack.get(stack.size() - 2)) {
-                stack.pop();
+            double currTime=(double) (target - p[0]) / p[1];
+            if (!stack.isEmpty() && currTime <= stack.peek()) {
+                continue;
+            }else{
+                stack.push(currTime);
             }
         }
         return stack.size();
