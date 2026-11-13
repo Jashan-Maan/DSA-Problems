@@ -1,9 +1,4 @@
 class Solution {
-    // Sliding window: expand right, shrink left when duplicate found.
-    // HashMap tracks char frequency in current window.
-    // Bug watch: map.get(s.charAt(left)) - 1 not map.get(s.charAt(left) - 1)
-    // Alternative: store index instead of count → left jumps directly, no while.
-    // O(n) time, O(k) space where k = charset size.
     public int lengthOfLongestSubstring(String s) {
         int longestString = 0;
 
